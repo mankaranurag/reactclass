@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Oriented</title>
+  </head>
+  <body>
+    <script>
+      //   //object literal syntax
+      //   // singleton object
+      //   var company = {
+      //     name: "JD",
+      //     city: "Pune",
+      //     getDetails: function (isMNC) {
+      //       console.log(
+      //         "Object Literal Syntax :" +
+      //           this.name +
+      //           " is  in " +
+      //           this.city +
+      //           " IsMnc?" +
+      //           isMNC
+      //       );
+      //     },
+      //   };
+      //   company.getDetails();
+      //   company.numberOfEmployees = 10;
+      //   console.log("Object Literal Syntax :" + company.numberOfEmployees);
+
+      //   // functions are internally represented as objects in javascript
+      //   var anotherCompany = {
+      //     name: "Infosys",
+      //     city: "Benglauru",
+      //   };
+
+      //   // Call, Apply, Bind //
+      //   //functions that can change the behavior of a particular object
+      //   // call on getdetails on context of anothercompany
+      //   // same for apply
+      //   // difference between call  and apply is parameters
+      //   // call we give comma seperated parameters for function
+      //   // in apply we give array
+      //   console.log("Call And Apply : Immediate Invocation");
+      //   company.getDetails.call(anotherCompany, true);
+      //   company.getDetails.apply(anotherCompany, [true]);
+
+      //   //Bind
+      //   // attact context but invoke later on
+      //   var ctx = company.getDetails.bind(anotherCompany);
+      //   console.log("Bind : Delayed Invocation");
+      //   ctx(false); // deplayed invocable !
+
+      //   // everything in js is object
+      //   var obj = new Object(); // base object base for everything
+      //   obj.xyz = 123;
+
+      // Constructor Syntax
+      // no access specifiers
+      function Car() {
+        this.name = "i20";
+        this.speed = 200;
+        this.accelarate = function () {
+          console.log(
+            this.name + " VRRROOOOOOOOOMMMMMMMMMMMM..." + this.speed + "kmph"
+          );
+        };
+      }
+
+      // objects are allocated only when we use "new"
+      // keyword "this" makes a member variable
+      var carObj = new Car();
+      carObj.carMake = "Hyundai";
+      console.log(carObj.carMake);
+
+      var anotherCarObj = new Car();
+
+      carObj.accelarate();
+      // Stack                      Heap
+      // carObj -==========> [(name,speed , carmake, accelarte)(===> new Object())]
+
+      function SportsCar() {
+        this.brand = "aaaaa";
+      }
+
+      // inheritance in javascript
+      // js supports prototypical(something that already exist) inheritance
+      // every object has _prototype property
+      // Car.prototype.HorsePower = 100;
+
+      function JamesBondCar() {
+        this.usenitropower = true;
+        this.weapons = 100;
+        this.accelarate = function () {
+          console.log(
+            this.name +
+              " VRRROOOOOOOOOMMMMMMMMMMMM..." +
+              this.speed +
+              "kmph Use nitro power " +
+              this.usenitropower
+          );
+        };
+      }
+      // sets prototype of JamesBondCar to  Car
+      JamesBondCar.prototype.car = new Car();
+      JamesBondCar.prototype.sportscar = new SportsCar();
+      var jbc = new JamesBondCar();
+      jbc.accelarate();
+
+      Date.prototype.getDayName = function (day) {
+        switch (day) {
+          case 1:
+            console.log(" Boring Monday");
+            break;
+          case 2:
+            console.log("Tuesday");
+            break;
+          case 3:
+            console.log("Wednesday");
+            break;
+          case 4:
+            console.log("Thursday");
+            break;
+          case 5:
+            console.log("Friday");
+            break;
+          case 6:
+          case 7:
+            console.log("Yeeeaaa Its a weekend");
+            break;
+        }
+      };
+      var newDate = new Date();
+      newDate.getDayName(newDate.getDay());
+    </script>
+  </body>
+</html>

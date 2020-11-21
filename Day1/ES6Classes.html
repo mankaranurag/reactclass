@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6Classes</title>
+    <script>
+      //
+      class Car {
+        constructor(name = "BMW", speed = 200) {
+          this.name = name;
+          this.speed = speed;
+        }
+
+        // // getter
+        // get Name() {
+        //   return this.name.toUpperCase();
+        // }
+
+        // // setter
+        // set Name(newName) {
+        //   this.name = newName;
+        // }
+
+        accelerate() {
+          return (
+            "VVRoooooommMMMMM....." + this.name + " " + this.speed + "kmph"
+          );
+        }
+      }
+      // var carObj = new Car();
+      // console.log(carObj.name);
+      // carObj.accelerate();
+      // var anotherCarObj = new Car("AUDI", 400);
+      // anotherCarObj.accelerate();
+      // carObj.Name = "Mahindra";
+      // console.log(carObj.Name);
+
+      // inheritance
+      class JamesBondCar extends Car {
+        constructor(name, speed, nitro) {
+          super(name, speed);
+          this.useNitroPower = nitro;
+        }
+        accelerate() {
+          return super.accelerate() + " Use Nitro Power ?" + this.useNitroPower;
+        }
+      }
+      var jbc = new JamesBondCar("Porshe", 1000, true);
+      console.log(jbc.accelerate());
+
+      // Multiple Inheritance is not supported
+      // Multi Level inheritance supported
+    </script>
+  </head>
+  <body></body>
+</html>

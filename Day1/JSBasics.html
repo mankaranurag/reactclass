@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Basics</title>
+    <script>
+      // ES5
+      var x = 10; //global var
+      console.log(typeof x);
+      x = "hello"; //loosely typed variables / dynamically typed
+      console.log(typeof x);
+
+      // function declaration syntax
+      function add(x, y) {
+        // Hoisted ! Meaning declaration moves at top
+        return x + y;
+      }
+
+      console.log(add(10, 20));
+      console.log(add()); // parameters to a function are optional result will be NaN - not a number
+
+      // Function as  a expression
+      //Anonymous functions // this is not hoisted // to be used only after defined or declared
+      var addAnon = function (x, y) {
+        return x + y;
+      };
+
+      console.log("addAnon ", addAnon(40, 60));
+
+      // No one uses this
+      // Function Constructor
+      var addObject = new Function("x", "y", "return x+y");
+
+      //nested function
+      function Outer() {
+        // scope is only inside Outer function
+        var ooo = "Within inner function";
+        function Inner() {
+          //inner function can access variables of outer
+          console.log(ooo);
+        }
+        Inner();
+      }
+      console.log("Nested ", Outer());
+
+      //returning a function
+      function ReturnFunction() {
+        // scope is only inside Outer function
+        var ooo = "Fucntion  Returned : Within inner function";
+        var counter = 0;
+        console.log("OuterFunction Called:  counter " + counter);
+        return function Inner() {
+          //   inner function can access variables of outer
+          counter += 1;
+          console.log(ooo + " counter " + counter);
+        };
+      }
+      // closure variables ==> ooo
+      // if a nested function uses variable of outer function , the variable is called as closure variables
+      var innerReturnedFunction = ReturnFunction();
+      innerReturnedFunction();
+      innerReturnedFunction();
+      innerReturnedFunction();
+
+      // function currying
+      console.log("Function currying Started ");
+      ReturnFunction()();
+      console.log("Function currying End ");
+
+      // IIFE - Immediate invokable function expression
+      // will  be executed just once immediately
+      // used when to initialize a stub
+      (function (x, y) {
+        console.log("IIFE Function ", x + y);
+      })(100, 20);
+
+      //Application Of IIFE
+      // Implement a modular pattern
+      // Only expose a some parts to external  world
+      // here addition  and multiplication is not exposed to outside world;
+      // only AdditionMultiplication is exposed
+
+      var MathModule = (function () {
+        function Addition(x, y) {
+          return x + y;
+        }
+        function Multiplication(x, y) {
+          return x + y;
+        }
+        function AdditionMultiplication(x, y) {
+          console.log("IIFE Addition ", Addition(x, y));
+          console.log("IIFE Multiplication ", Multiplication(x, y));
+        }
+
+        return { AddMul: AdditionMultiplication };
+
+        // mutiple functions exposed
+        // return { AddMul: AdditionMultiplication, Mul: Multiplication  };
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

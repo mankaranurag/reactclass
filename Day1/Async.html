@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async</title>
+    <script>
+      function Emp() {
+        this.salary = 500000;
+        setTimeout(() => {
+          console.log(this.salary);
+        }, 2000);
+      }
+
+      var e = new Emp();
+
+      // js is SingleThreadedRuntime
+      // line 15 call Emp()
+      // setTimeout runs and function is placed onto heap to wait wait for 2 sec
+      // control comes back to emp()
+      // and emp executed
+      // when 2 sec complete function is executed (2sec is minimum time function will be executed)
+      // if emp() is still being executed the function will wait to be executed
+
+      // promises
+
+      // async and await in ES7
+      // async function should have atleast one await
+    </script>
+  </head>
+  <body></body>
+</html>

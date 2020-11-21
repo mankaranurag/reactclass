@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Basics</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"
+      integrity="sha512-jw5xwED/d4e6x9q10ZuLVHnQ4bRsG5wQPL7jAptgjZJbpYs9qF9Pt8vRLV5ohSOt/jhr6B7fKfALkK/IMIyUmQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"
+      integrity="sha512-ocEXIZS1zCiWd/ngdugbSKWpoEBEp276o7oqWogajd3GsbAwNmL9kAf2nvtmWhGmvcF8Tlcvli/0ABgAwAxeAQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <style>
+      .headerStyle {
+        background-color: aqua;
+        border-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 1. define component
+    // 2. Instantiate the component
+    // 3. Render the component instance
+
+    // all components should be starting with Capital Letter
+    class BasicComponent extends React.Component {
+      //this is called when a component is instantiated
+      render() {
+        return React.createElement(
+          "h1",
+          { id: "header" },
+          "Hello React Component !"
+        );
+      }
+    }
+    var basicComponentInst = React.createElement(BasicComponent);
+
+    // this method will be called only once in the page
+    ReactDOM.render(basicComponentInst, document.getElementById("root"));
+  </script>
+</html>

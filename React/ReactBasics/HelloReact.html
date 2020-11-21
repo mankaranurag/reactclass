@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloReact</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"
+      integrity="sha512-jw5xwED/d4e6x9q10ZuLVHnQ4bRsG5wQPL7jAptgjZJbpYs9qF9Pt8vRLV5ohSOt/jhr6B7fKfALkK/IMIyUmQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"
+      integrity="sha512-ocEXIZS1zCiWd/ngdugbSKWpoEBEp276o7oqWogajd3GsbAwNmL9kAf2nvtmWhGmvcF8Tlcvli/0ABgAwAxeAQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // React Code !
+    // Element in react is a very low level entity similar to document.createElement in js
+    // React.createElement('theElementYouWantToCreate', attributes, children );
+    // virtual dom elements
+    var h1Element = React.createElement(
+      "h1",
+      { id: "header" },
+      "Hello React !"
+    );
+    var spanElement = React.createElement(
+      "span",
+      {},
+      "This is a span Element !"
+    );
+    var divElement = React.createElement("div", {}, [h1Element, spanElement]);
+
+    ReactDOM.render(divElement, document.getElementById("root"));
+    // react create virtual elements and then creates virtual dom  then converts to actual browser dom
+    // Components contains of elements
+  </script>
+</html>

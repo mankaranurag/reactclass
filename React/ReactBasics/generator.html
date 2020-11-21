@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>generator</title>
+    <script>
+      // Generator Fucntion ->  a single function whose execution is not continuous
+      // breaks and resumes breaks and resumes
+      // syntax
+      // function*
+      // when called for first function they return a generator object
+      // generator object has {next() //fucntion, done //object}
+      // use for generating something
+      function* EmployeeIdGenerator() {
+        var id = 0;
+        while (id < 10) {
+          // same like return but not completely return
+          // holds the value of id
+
+          yield id++;
+          yield id--;
+        }
+      }
+
+      var genEmpId = EmployeeIdGenerator();
+      console.log(genEmpId.next().value); // logs 0
+      console.log(genEmpId.next().value); // logs 1
+      console.log(genEmpId.next().value); // logs 2
+      console.log(genEmpId.next().value); // logs 3
+      console.log(genEmpId.next().value); // logs 4
+      console.log(genEmpId.next().done); // logs 4
+    </script>
+  </head>
+  <body></body>
+</html>

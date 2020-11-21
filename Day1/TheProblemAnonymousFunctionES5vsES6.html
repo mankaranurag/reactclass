@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheProblemAnonymousFunctionES5vsES6</title>
+    <script>
+      //ES5
+      function Emp() {
+        this.salary = 50000;
+        // after
+        var self = this;
+        setTimeout(function () {
+          // before
+          //console.log(this.salary);
+
+          // after
+          // self is a closure variable
+          console.log(self.salary);
+        }, 2000);
+      }
+      // here setTimeout is an async function
+      // so when Emp is called function()  is kept in queue
+      // after 2 sec when function()  comes out of queue
+      // ideally this causess a problem beacuse js does not store "this" as a context
+      // so in function()  after 2 sec this is not resolve so output is undefined for
+      // this.salary in it this is a window object not an emp object so for this we use
+      // var  self = this; and self.salary
+      // here self would be closure variable
+
+      var e = new Emp();
+
+      // ES6 arrow function solutions
+      function Emp() {
+        this.salary = 50000;
+        setTimeout(() => console.log(this.salary), 2000);
+      }
+      // here setTimeout functions context is bind to emp object
+
+      var e = new Emp();
+      // arrow functions is used when we have a callback scenario
+
+      // Arrow functions get binded to the function in which they are created at function creation
+      // so they cannot be used to create constructor functions
+      // arrow functions may not work in all browsers
+      // ie11 does not support arrow functions
+      // so we use transpilers(convert ES6 code to ES5) or polyfills
+
+      // In normal function the context is bound at runtime  i.e. to window object
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Use Snapshot testing should take the snapshot 1`] = `
+<div>
+  <p>
+    Count : 
+    0
+  </p>
+  <button
+    id="incre"
+    onClick={[Function]}
+  >
+    +++
+  </button>
+</div>
+`;

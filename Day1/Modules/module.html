@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modules</title>
+    <!--  Ideally this we do   
+    <script src="./MathModule.js"></script>
+    <script src="./CalcModule.js"></script> -->
+    <!-- <script src="./CalcModule.js" type="module"></script> -->
+    <script type="module" crossorigin="anonymous">
+      // modules is a simple .js file that we can use to create modules
+      // Module Loaders( Used before ES6)
+      // 1. RequireJS (Expected your code to be present in some format)
+      // 2. CommonJS
+      // 3. SystemJS
+
+      // AMD  => async module downloaders
+
+      // ES6 modules provide a standard way of referring to modules
+      // anything you want to use in outside world you have to use "export" keyword
+
+      //  we can have only one default export
+      // "default" keyword export can be used to alias like add in CalcModule.js
+      import {} from "./CalcModule.js";
+      console.log("Hi");
+    </script>
+  </head>
+  <body></body>
+</html>

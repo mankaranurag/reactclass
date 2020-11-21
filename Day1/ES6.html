@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6 features</title>
+  </head>
+  <body>
+    <script>
+      //   // not all features are supported by all browsers for es6
+      //   // var does not let you  have block scoping
+      //   // let allows you to have block scoping
+      //   // var becomes hoisted variable;
+      //   if (true) {
+      //     // this is a block
+      //     let x = 10; // let stops variable hoisting
+      //     var y = 111;
+      //     console.log("x " + x);
+      //     if (true) {
+      //       let x = 100;
+      //       console.log("x " + x); //  inner x will  be having priority
+      //     }
+      //   }
+      //   // var  can be used with window.y
+      //   //  but let cannot be used with window
+      //   console.log(y);
+
+      //   // const
+      //   const day = "Monday "; //  acts same as let but is constant
+      //   // const with object
+      //   const person = { name: "anurag", city: "Delhi" };
+      //   person.city = "Nagpur";
+      //   // const with object reassignment not allowed
+
+      // Operators in es6
+      //  spread operator(...) // works with objects and arrays
+      // does not reference but copies values
+      //   var cars = ["bmw", "audi", "lambo"];
+      //   var morecars = ["tata", "duster"];
+      //   cars[0] = "ferrari";
+      //   var allcars = [...cars, ...morecars];
+      //   for (let c of allcars) {
+      //     console.log(c);
+      //   }
+
+      // with objects
+      //   var personV = { name: "Virat", city: "Delhi" };
+      //   var player = { ...personV, city: "Bengalaru", type: "bat" }; // ...personV copies values of personV into player
+      // modifies existing i.e. city to Bengalaru from Delhi is new specified
+
+      //   // syntaxes
+      //   // Destructuring (Array and Object)
+
+      //   // Destructuring Arrays
+      //   var cars = ["bmw", "audi", "lambo"];
+      //   var firstCar, secondCar, thirdCar;
+      //   [firstCar, secondCar] = cars; // positional matching
+      //   //   so firstCar will  be matched to cars[0]
+      //   //   and secondCar will  be matched to cars[1]
+
+      //   [firstCar, , secondCar] = cars; // positional matching
+      //   //   so firstCar will  be matched to cars[0]
+      //   //   and secondCar will  be matched to cars[2] extra comma so centre value skipped
+
+      //   [firstCar, , secondCar, thirdCar = "TATA"] = cars; // positional matching
+      //   //   so firstCar will  be matched to cars[0]
+      //   //   and secondCar will  be matched to cars[2] extra comma so centre value skipped
+      //   //    and thirdCar will have value "TATA" if 4th value in cars is not present
+
+      //   //   we can also do it as
+      //   //   var [firstCar, secondCar, thirdCar] = cars;
+
+      //   //   Destructuring Objects
+      //   var personV = { name: "Virat", city: "Delhi" };
+      //   //   var { name, city } = personV;  //1
+      //   //   var name, city;
+      //   //   ({ name, city } = personV); //2
+
+      //   function getPerson({ name }) {
+      //     console.log(name);
+      //   }
+      //   // here even though entire person is being passed we get only name
+      //   getPerson(personV);
+
+      //   functions in ES6;
+
+      //   ES5;
+      //   function Add(x, y) {
+      //     x = x || 10; //short-circuit
+      //     y = y || 30;
+      //     return x + y; // NaN if x ,y not passed in ES5
+      //   }
+
+      //   //ES6 way
+      //   // allows you to add default values
+      //   function Add(x = 10, y = 30) {
+      //     return x + y;
+      //   }
+      //   console.log(Add());
+
+      //   // Arrow functions
+      //   // Another way of writing anonymous functions
+      //   var Add = (x, y) => {
+      //     return x + y;
+      //   };
+      //   //OR
+      //   var Add = (x, y) => x + y;
+      //   // OR
+      //   var Square = (x) => x * x;
+
+      //   console.log(Add(10, 20));
+      //   console.log(Square(10));
+
+      //   var cars = ["bmw", "audi", "lambo"];
+      //   cars.forEach((theCar, index) => console.log(index + 1 + ". " + theCar));
+
+      // forEach and setTimeout are both callback functions
+      // but forEach  is sync function and setTimeout is async function
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello JSX</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"
+      integrity="sha512-jw5xwED/d4e6x9q10ZuLVHnQ4bRsG5wQPL7jAptgjZJbpYs9qF9Pt8vRLV5ohSOt/jhr6B7fKfALkK/IMIyUmQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"
+      integrity="sha512-ocEXIZS1zCiWd/ngdugbSKWpoEBEp276o7oqWogajd3GsbAwNmL9kAf2nvtmWhGmvcF8Tlcvli/0ABgAwAxeAQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <style>
+      .headerStyle {
+        background-color: aqua;
+        border-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/jsx">
+
+    // jsx statement
+    // className is used to specify class in jsx
+    var divElement = <div className="headerStyle">
+        <h1> Hello JSX ! </h1>
+        {/*<h1> Hello JSX ! </h1>  this is a comment in jsc*/}
+        <span>This is a Span Tag !</span>
+    </div>;
+
+    // react does no understand jsx
+    //JSx Transformer transform divElement  to react element
+    ReactDOM.render(divElement, document.getElementById("root"));
+  </script>
+</html>
